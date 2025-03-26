@@ -11,7 +11,8 @@ public class GameStateManager : MonoBehaviour
     {
         MainMenu_State,
         Gameplay_State,
-        Paused_State
+        Paused_State,
+        Dailogue_State
 
 
     }
@@ -57,6 +58,13 @@ public class GameStateManager : MonoBehaviour
                 gameManager.iManager.EnablePause();
                 Cursor.visible = true;
 
+                break;
+
+            case GameState.Dailogue_State:
+                Debug.Log("switched to dailogue state");
+                Time.timeScale = 0;
+                gameManager.iManager.Dailogueui();
+                Cursor.visible = true;
                 break;
         }
 
@@ -123,6 +131,12 @@ public class GameStateManager : MonoBehaviour
     public void Quitbutton()
     {
         Application.Quit();
+
+    }
+
+    public void dailoguestart()
+    {
+        ChangeState(GameState.Dailogue_State);
 
     }
 

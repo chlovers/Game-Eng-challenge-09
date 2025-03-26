@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Interactionobject : MonoBehaviour
 {
+    public GameManager gameManager;
+    
+    
     public GameObject signtxt;
+
 
     public enum Interactions
     {
         Pickup_interact,
-        Info_interact
+        Info_interact,
+        talking
     }
 
     public Interactions interact;
@@ -18,6 +23,16 @@ public class Interactionobject : MonoBehaviour
     {
         signtxt.SetActive(false);
     }
+
+    private DailogManager dailogManager;
+
+    [TextArea] public string[] sentences;
+
+    private void Awake()
+    {
+        dailogManager = GetComponent<DailogManager>();
+    }
+
     public void inter()
     {
        
@@ -32,6 +47,10 @@ public class Interactionobject : MonoBehaviour
             case Interactions.Info_interact:
                 Info();
                     break;
+
+            case Interactions.talking:
+                dailog();
+                break;
 
         }
 
@@ -52,6 +71,14 @@ public class Interactionobject : MonoBehaviour
         signtxt.SetActive(true);
         StartCoroutine(fadeout());
         
+    }
+
+    public void dailog()
+    {
+        dailogManager.startdailogue(sentences);
+        gameManager.gameState.dailoguestart();
+
+
     }
      
     IEnumerator fadeout()
