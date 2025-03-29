@@ -76,7 +76,7 @@ public class Interactionobject : MonoBehaviour
     public void dailog()
     {
         dailogManager.startdailogue(sentences);
-        gameManager.gameState.dailoguestart();
+       // gameManager.gameState.dailoguestart();
 
 
     }

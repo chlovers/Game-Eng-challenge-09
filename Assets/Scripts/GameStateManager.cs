@@ -63,7 +63,7 @@ public class GameStateManager : MonoBehaviour
             case GameState.Dailogue_State:
                 Debug.Log("switched to dailogue state");
                 Time.timeScale = 0;
-                gameManager.iManager.Dailogueui();
+               // gameManager.iManager.Dailogueui();
                 Cursor.visible = true;
                 break;
         }

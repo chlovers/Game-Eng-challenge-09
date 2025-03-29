@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject pausemenu;
     public GameObject gameplayUI;
     public GameObject optionsui;
-    public GameObject dailogueUI;
+  //  public GameObject dailogueUI;
 
     public Image image;
     public Slider slider;
@@ -42,20 +42,20 @@ public class UIManager : MonoBehaviour
         gameplayUI.SetActive(true);
     }
 
-    public void Dailogueui()
+  /*  public void Dailogueui()
     {
         TurnoffAll();
         dailogueUI.SetActive(true);
 
     }
-
+  */
     public void TurnoffAll()
     {
         mainmenu.SetActive(false);
         pausemenu.SetActive(false);
         gameplayUI.SetActive(false);
         optionsui.SetActive(false);
-        dailogueUI.SetActive(false);
+      //  dailogueUI.SetActive(false);
     }
 
     private void Start()
